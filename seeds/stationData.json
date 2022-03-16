@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Criss Angel Amoco",
+        "address": "123 Wabash Ave",
+        "zip": "60606"
+    },
+    {
+        "name": "David Blaine BP",
+        "address": "345 Magic St",
+        "zip": "60302"
+    },
+    {
+        "name": "Copperfield's Citgo",
+        "address": "678 Michigan Ave",
+        "zip": "60606"
+    }
+]

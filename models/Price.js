@@ -12,7 +12,7 @@ Price.init(
             autoIncrement: true,
         },
         price: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(3, 2),
             allowNull: false,
         },
         station_id: {
