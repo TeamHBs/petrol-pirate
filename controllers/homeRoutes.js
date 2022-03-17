@@ -11,6 +11,10 @@ router.get('/', async (req, res) => {
                     model: User,
                     attributes: ['name'],
                 },
+                {
+                    model: Station,
+                    attributes: ['name'],
+                },
             ],
         });
 
@@ -18,6 +22,11 @@ router.get('/', async (req, res) => {
         const prices = priceData.map((price) => price.get({ plain: true }));
 
         // Pass serialized data and session flag into template
+        if (!req.session.logged_in) {
+            res.redirect('/login');
+            return;
+        }
+
         res.render('homepage', {
             prices,
             logged_in: req.session.logged_in,
@@ -27,52 +36,52 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/price/:id', async (req, res) => {
-    try {
-        const priceData = await Price.findByPk(req.params.id, {
-            include: [
-                {
-                    model: User,
-                    attributes: ['name'],
-                },
-            ],
-        });
+// router.get('/price/:id', async (req, res) => {
+//     try {
+//         const priceData = await Price.findByPk(req.params.id, {
+//             include: [
+//                 {
+//                     model: User,
+//                     attributes: ['name'],
+//                 },
+//             ],
+//         });
 
-        const price = priceData.get({ plain: true });
+//         const price = priceData.get({ plain: true });
 
-        res.render('price', {
-            ...price,
-            logged_in: req.session.logged_in,
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+//         res.render('price', {
+//             ...price,
+//             logged_in: req.session.logged_in,
+//         });
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
-// Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
-    try {
-        // Find the logged in user based on the session ID
-        const userData = await User.findByPk(req.session.user_id, {
-            attributes: { exclude: ['password'] },
-            include: [{ model: Price }],
-        });
+// // Use withAuth middleware to prevent access to route
+// router.get('/profile', withAuth, async (req, res) => {
+//     try {
+//         // Find the logged in user based on the session ID
+//         const userData = await User.findByPk(req.session.user_id, {
+//             attributes: { exclude: ['password'] },
+//             include: [{ model: Price }],
+//         });
 
-        const user = userData.get({ plain: true });
+//         const user = userData.get({ plain: true });
 
-        res.render('profile', {
-            ...user,
-            logged_in: true,
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+//         res.render('profile', {
+//             ...user,
+//             logged_in: true,
+//         });
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
 router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
     if (req.session.logged_in) {
-        res.redirect('/profile');
+        res.redirect('/');
         return;
     }
 
