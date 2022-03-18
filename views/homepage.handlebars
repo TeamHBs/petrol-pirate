@@ -1,10 +1,17 @@
+{{! search bar }}
+
+{{! history }}
+
+{{! display area }}
 <!-- Loop over each object in the prices array -->
 {{#each prices as |price|}}
     <div class='row mb-4 price'>
-        {{price.price}}
+        ${{price.price}}
 
         {{price.user.name}}
 
         {{price.station.name}}
+
+        {{price.station.zip}}
     </div>
 {{/each}}

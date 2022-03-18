@@ -16,8 +16,11 @@
                     <a href='/'>Petrol Pirate</a>
                 </h1>
                 <nav>
+
                     <!-- Conditionally render login or logout links -->
                     {{#if logged_in}}
+                        <a href='/submit'>Submit a Gas Price</a>
+                        |
                         <a href='/profile'>Profile</a>
                         |
                         <button class='no-button' id='logout'>Logout</button>
