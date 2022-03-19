@@ -15,6 +15,7 @@ Station.init(
         },
         address: {
             type: DataTypes.STRING,
+            unique: true,
         },
         zip: {
             type: DataTypes.STRING,
