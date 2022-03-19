@@ -8,12 +8,15 @@ const priceSubmit = async (event) => {
 
     const newStation = await fetch('/api/stations', {
         method: 'POST',
-        body: JSON.stringify({ name, address, zip }),
+        body: JSON.stringify({ price, name, address, zip }),
         headers: {
             'Content-Type': 'application/json',
         },
     }).then((data) => data.json());
 
+    console.log(newStation);
+
+    // if (newStation.ok) {
     //   get station id from db
     const station_id = newStation.id;
     // use id to do post to price model
@@ -23,6 +26,8 @@ const priceSubmit = async (event) => {
         headers: { 'Content-Type': 'application/json' },
     });
     console.log(newPrice);
+    // }
+
     document.location.replace('/?message=Your Price Has Been Submitted');
 
     // fetch('/api/users/login', {

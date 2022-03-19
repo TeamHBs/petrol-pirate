@@ -16,7 +16,6 @@
                     <a href='/'>Petrol Pirate</a>
                 </h1>
                 <nav>
-
                     <!-- Conditionally render login or logout links -->
                     {{#if logged_in}}
                         <a href='/submit'>Submit a Gas Price</a>
@@ -39,7 +38,6 @@
         <!-- Render script for logged in users only -->
         {{#if logged_in}}
             <script src='/js/logout.js'></script>
-            <script src='/js/priceSubmit.js'></script>
         {{/if}}
     </body>
 

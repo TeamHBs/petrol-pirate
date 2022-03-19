@@ -17,6 +17,7 @@ Price.init(
         },
         station_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'stations',
                 key: 'id',
