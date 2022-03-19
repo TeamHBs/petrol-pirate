@@ -14,19 +14,16 @@ const priceSubmit = async (event) => {
         },
     }).then((data) => data.json());
 
-    // if (newStation.ok) {
-    //     //   get station id from db
-    //     // use id to do post to price model
-    //     const newPrice = await fetch('/api/prices/', {
-    //         method: 'POST',
-    //         body: JSON.stringify({ price, station_id }),
-    //         headers: { 'Content-Type': 'application/json' },
-    //     });
-    //     console.log(newPrice);
-    //     document.location.replace('/profile');
-    // } else {
-    //     alert('Failed to create price');
-    // }
+    //   get station id from db
+    const station_id = newStation.id;
+    // use id to do post to price model
+    const newPrice = await fetch('/api/prices/', {
+        method: 'POST',
+        body: JSON.stringify({ price, station_id }),
+        headers: { 'Content-Type': 'application/json' },
+    });
+    console.log(newPrice);
+    document.location.replace('/?message=Your Price Has Been Submitted');
 
     // fetch('/api/users/login', {
     //     method: 'GET',
