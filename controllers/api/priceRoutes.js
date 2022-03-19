@@ -4,6 +4,8 @@ const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
     try {
+        // final station where name - req.name
+
         const newPrice = await Price.create({
             ...req.body,
             user_id: req.session.user_id,
