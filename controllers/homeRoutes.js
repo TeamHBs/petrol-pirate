@@ -3,6 +3,7 @@ const { Price, Station, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
+    const message = req.query.message || '';
     try {
         // Get all prices and JOIN with user data
         const priceData = await Price.findAll({
@@ -30,6 +31,7 @@ router.get('/', async (req, res) => {
         res.render('homepage', {
             prices,
             logged_in: req.session.logged_in,
+            message,
         });
     } catch (err) {
         res.status(500).json(err);
