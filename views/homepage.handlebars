@@ -1,10 +1,13 @@
-{{! search bar }}
+{{! filter bar }}
+<h2>search for a gas station here:</h2>
+<input type="text"></input>
 
 {{! history }}
 
 <div>{{message}}</div>
 {{! display area }}
 <!-- Loop over each object in the prices array -->
+<h2>Find cheap gas users have found:</h2>
 {{#each prices as |price|}}
     <div class='row mb-4 price'>
         ${{price.price}}

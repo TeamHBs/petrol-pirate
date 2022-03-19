@@ -3,10 +3,16 @@ const { Price, Station, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
+    let whereClause = {};
+    if (req.query.zip) {
+        whereClause.zip = req.query.zip;
+    }
+    
     const message = req.query.message || '';
     try {
         // Get all prices and JOIN with user data
         const priceData = await Price.findAll({
+            
             include: [
                 {
                     model: User,
@@ -15,6 +21,7 @@ router.get('/', async (req, res) => {
                 {
                     model: Station,
                     attributes: ['name', 'zip'],
+                    where: whereClause,
                 },
             ],
         });
