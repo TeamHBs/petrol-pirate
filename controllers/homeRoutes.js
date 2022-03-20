@@ -1,18 +1,29 @@
 const router = require('express').Router();
 const { Price, Station, User } = require('../models');
+const { Op } = require('sequelize');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
     let whereClause = {};
+
     if (req.query.zip) {
         whereClause.zip = req.query.zip;
     }
-    
+
+    if (req.query.price) {
+        whereClause.price = {
+            price: {
+                [Op.lte]: req.query.price,
+            },
+        };
+    }
+
     const message = req.query.message || '';
+
     try {
         // Get all prices and JOIN with user data
         const priceData = await Price.findAll({
-            
+            where: whereClause.price,
             include: [
                 {
                     model: User,
@@ -21,7 +32,7 @@ router.get('/', async (req, res) => {
                 {
                     model: Station,
                     attributes: ['name', 'zip'],
-                    where: whereClause,
+                    where: whereClause.zip,
                 },
             ],
         });
@@ -45,6 +56,7 @@ router.get('/', async (req, res) => {
     }
 });
 
+// price history route
 // router.get('/price/:id', async (req, res) => {
 //     try {
 //         const priceData = await Price.findByPk(req.params.id, {

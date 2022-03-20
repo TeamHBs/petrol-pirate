@@ -1,13 +1,28 @@
 {{! filter bar }}
-<h2>search for a gas station here:</h2>
-<input type="text"></input>
+<form action='' id='filterForm'>
+    <div class='form-group'>
+        <label for='filter'>Filter results by:</label>
+        <select name='filter' id='filterChoice'>
+            <option value='' disabled selected>Select a filter</option>
+            <option value='maxPrice'>Max Price</option>
+            <option value='zip'>Zip Code</option>
+        </select>
+    </div>
+    <div class='form-group'>
+        <label for='filter'>Value:</label>
+        <input type='text' id='filterInput' />
+    </div>
+    <div class='form-group'>
+        <button type='submit' class='btn btn-primary' id='filterSubmit'>Filter</button>
+    </div>
+</form>
 
 {{! history }}
 
 <div>{{message}}</div>
 {{! display area }}
 <!-- Loop over each object in the prices array -->
-<h2>Find cheap gas users have found:</h2>
+<h2>Cheap gas locations:</h2>
 {{#each prices as |price|}}
     <div class='row mb-4 price'>
         ${{price.price}}
