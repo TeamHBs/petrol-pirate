@@ -1,24 +1,106 @@
-header, .project:not(:last-child) {
+/* header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
+} */
+.navbar {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    justify-content: space-between;
+}
+
+a {
+    color: white;
+}
+
+header {
+    background-color: #065b83;
+}
+
+li {
+    list-style: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+}
+
+.hamburger {
+    display: none;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    transition: 0.7s ease;
 }
 
 .no-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
-  font-size: 100%;
+    background: none;
+    border: none;
+    color: white;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 100%;
 }
 
 .no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.petrol-pirate {
+    font-size: 2rem;
 }
 
 .dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+    color: #056605;
+    font-weight: bold;
+    margin-left: -5px;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0px;
+        flex-direction: column;
+        background-color: #065b83;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+    .nav-link {
+        margin: 16px 0;
+    }
+
+    .menu.active {
+        left: 0;
+    }
 }
