@@ -14,6 +14,9 @@ Price.init(
         price: {
             type: DataTypes.DECIMAL(3, 2),
             allowNull: false,
+            valdidate: {
+                isDecimal: true,
+            },
         },
         station_id: {
             type: DataTypes.INTEGER,
