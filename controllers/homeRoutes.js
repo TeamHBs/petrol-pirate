@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     let whereClause = {};
 
     if (req.query.zip) {
-        whereClause.zip = req.query.zip;
+        whereClause.zip = { zip: req.query.zip };
     }
 
     if (req.query.price) {
