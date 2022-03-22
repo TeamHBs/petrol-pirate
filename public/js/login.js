@@ -47,17 +47,17 @@ const signupFormHandler = async (event) => {
     }
 };
 
-// hamburger.addEventListener('click', () => {
-//     hamburger.classList.toggle('active');
-//     menu.classList.toggle('active');
-// });
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    menu.classList.toggle('active');
+});
 
-// document.querySelectorAll('.nav-link').forEach((n) =>
-//     n.addEventListener('click', () => {
-//         hamburger.classList.remove('active');
-//         menu.classList.remove('active');
-//     })
-// );
+document.querySelectorAll('.nav-link').forEach((n) =>
+    n.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        menu.classList.remove('active');
+    })
+);
 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
 

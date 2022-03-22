@@ -1,3 +1,6 @@
+const hamburger = document.querySelector('.hamburger');
+const menu = document.querySelector('.menu');
+
 const querySubmit = async (event) => {
     event.preventDefault();
 
@@ -16,5 +19,17 @@ const querySubmit = async (event) => {
 
     document.location.replace(`/?${filterChoice}=${filterInput}`);
 };
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    menu.classList.toggle('active');
+});
+
+document.querySelectorAll('.nav-link').forEach((n) =>
+    n.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        menu.classList.remove('active');
+    })
+);
 
 document.querySelector('#filterSubmit').addEventListener('click', querySubmit);
