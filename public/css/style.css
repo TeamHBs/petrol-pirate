@@ -31,6 +31,16 @@ li {
     background-color: white;
 }
 
+.hamburger-bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #ffffff;
+}
+
 .hamburger {
     display: none;
 }
@@ -74,6 +84,7 @@ li {
 @media (max-width: 768px) {
     .hamburger {
         display: block;
+        float: right;
     }
 
     .hamburger.active .bar:nth-child(2) {
@@ -86,16 +97,24 @@ li {
         transform: translateY(-8px) rotate(-45deg);
     }
     .menu {
+        z-index: 1;
         position: fixed;
         left: -100%;
         top: 70px;
         gap: 0px;
         flex-direction: column;
-        background-color: #065b83;
+        background-color: #ffffff;
         width: 100%;
         text-align: center;
         transition: 0.3s;
+        padding-top: 20px;
+        margin-top: 20px;
     }
+
+    .m-top {
+        margin-top: 40px;
+    }
+
     .nav-link {
         margin: 16px 0;
     }

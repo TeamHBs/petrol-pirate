@@ -13,7 +13,7 @@
         <div class='flex-column justify-space-around'>
             <header class='display-flex justify-space-between align-center p-2'>
 
-                <nav class='navbar'>
+                <nav class='flex navbar w-100'>
                     <h1>
                         <a class='petrol-pirate' href='/'>Petrol Pirate</a>
                     </h1>
@@ -26,9 +26,14 @@
                             <li><button class='btn nav-btn'><a href='/login' class='nav-link'>Login</a></button></li>
                         {{/if}}
                     </ul>
+                    <div class='hamburger'>
+                        <span class='hamburger-bar'></span>
+                        <span class='hamburger-bar'></span>
+                        <span class='hamburger-bar'></span>
+                    </div>
                 </nav>
             </header>
-            <main class='container container-fluid mt-5'>
+            <main class='container container-fluid mt-5 m-top'>
                 <!-- Render the sub layout -->
                 {{{body}}}
             </main>
