@@ -21,18 +21,25 @@
 
 <div>{{message}}</div>
 {{! display area }}
-<!-- Loop over each object in the prices array -->
+
 <h2>Cheap gas locations:</h2>
-{{#each prices as |price|}}
-    <div class='row mb-4 price'>
-        ${{price.price}}
-
-        {{price.user.name}}
-
-        {{price.station.name}}
-
-        {{price.station.zip}}
-    </div>
-{{/each}}
-
+<table>
+    <tr>
+        <th>Price</th>
+        <th>Posted By</th>
+        <th>Station</th>
+        <th>Address</th>
+        <th>Zip Code</th>
+    </tr>
+    <!-- Loop over each object in the prices array -->
+    {{#each prices as |price|}}
+        <tr>
+            <td>${{price.price}}</td>
+            <td>{{price.user.name}}</td>
+            <td>{{price.station.name}}</td>
+            <td>{{price.station.address}}</td>
+            <td>{{price.station.zip}}</td>
+        </tr>
+    {{/each}}
+</table>
 <script src='./js/homepage.js'></script>
