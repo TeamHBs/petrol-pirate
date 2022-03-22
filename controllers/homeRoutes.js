@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
                 },
                 {
                     model: Station,
-                    attributes: ['name', 'zip'],
+                    attributes: ['name', 'address', 'zip'],
                     where: whereClause.zip,
                 },
             ],
