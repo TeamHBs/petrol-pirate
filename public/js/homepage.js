@@ -1,12 +1,12 @@
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
-// const pinArray = document.querySelectorAll('.pushpin').value;
+const pinArray = document.querySelectorAll('.pushpin').values;
 // const pinArray = [
 //     { lat: 41.8781, lon: -87.6298 },
 //     { lat: 42.0, lon: -86.0 },
 // ];
 
-// console.log(pinArray);
+console.log(pinArray);
 
 const querySubmit = async (event) => {
     event.preventDefault();
@@ -36,8 +36,6 @@ function loadMapScenario() {
         mapTypeId: Microsoft.Maps.MapTypeId.road,
         zoom: 10,
     });
-
-    console.log(pinArray);
 
     // loop through location array to create all the
     pinArray.forEach((pin) => {
