@@ -1,19 +1,35 @@
+{{! <form action='' id='filterForm'>
+    <div class='form-group input-group mb-3'>
+        <button class='btn btn-outline-secondary dropdown-toggle form-group' type='button' data-bs-toggle='dropdown' aria-expanded='false' for='filter'>Filter Search:</button>
+        <ul class='dropdown-menu'>
+            <li><a class='dropdown-item' value='price'>Max Price</a></li>
+            <li><a class='dropdown-item' value='zip'>Zip Code</a></li>
+            <li><hr class='dropdown-divider' /></li>
+            <li><a class='dropdown-item' href='#'>Separated link</a></li>
+        </ul>
+        <input type='text' class='form-control' aria-label='Text input with dropdown button' />
+        <div class='form-group'>
+            <button type='submit' class='btn btn-primary' id='filterSubmit'>Filter</button>
+        </div>
+    </div>
+</form> }}
+
 {{! filter bar }}
-<form action='' id='filterForm'>
+<form class='d-flex flex-wrap' action='' id='filterForm'>
     <div class='form-group'>
         <label for='filter'>Filter results by:</label>
-        <select name='filter' class="dropdown" id='filterChoice'>
-            <option value='' disabled selected>Select a filter</option>
+        <select class='dropdown' name='filter' id='filterChoice'>
+            <option class='dropdown' value='' disabled selected>Select a filter</option>
             <option value='price'>Max Price</option>
             <option value='zip'>Zip Code</option>
         </select>
     </div>
     <div class='form-group'>
-        <label for='filter'>Value:</label>
+        <label placeholder='Enter value here...' for='filter'></label>
         <input type='text' id='filterInput' />
     </div>
     <div class='form-group'>
-        <button type='submit' class='btn btn-primary' id='filterSubmit'>Filter</button>
+        <button type='submit' class='btn btn-primary' id='filterSubmit'>See My Results</button>
     </div>
 </form>
 
