@@ -47,6 +47,11 @@ const querySubmit = async (event) => {
     //     alert(filter.statusText);
     // }
 
+    // const response = await fetch('/api/prices', {
+    //     method: 'GET',
+    //     headers: { 'Content-Type': 'application/json' },
+    // });
+
     document.location.replace(`/?${filterChoice}=${filterInput}`);
 };
 
