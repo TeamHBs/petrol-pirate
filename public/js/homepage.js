@@ -1,6 +1,6 @@
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
-const pinArray = [];
+var pinArray = [];
 var map = null;
 
 const fetchAddresses = async () => {
@@ -33,7 +33,7 @@ const fetchAddresses = async () => {
 
 const querySubmit = async (event) => {
     event.preventDefault();
-
+    pinArray = [];
     const filterChoice = document.querySelector('#filterChoice').value.trim();
     const filterInput = document.querySelector('#filterInput').value.trim();
 
@@ -89,6 +89,4 @@ document.querySelector('#filterSubmit').addEventListener('click', querySubmit);
 
 document.querySelector('#resetButton').addEventListener('click', resetPage);
 
-
 fetchAddresses();
-
