@@ -91,7 +91,7 @@ li {
 }
 
 .map-style {
-    border: 5px solid #065b83;
+    border: 5px solid #1d84b5;
     text-align: center;
     display: flex;
 }
@@ -108,13 +108,22 @@ li {
     padding: 10px;
 }
 
-.footer-text {
-    color: black;
+.table-style {
+    border: 5px solid #1d84b5;
+    text-align: center;
+}
+table {
+    background-color: #ff0000;
+}
+tr {
+    background-color: #f7cf64;
+}
+td {
+    background-color: #1d84b5;
 }
 
-.table-style {
-    border: 5px solid #065b83;
-    text-align: center;
+.main-text {
+    color: white;
 }
 
 .gradient-bg {
