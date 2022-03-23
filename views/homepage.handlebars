@@ -39,23 +39,50 @@
 {{! display area }}
 
 <h2>Cheap gas locations:</h2>
-<table>
+<table class="table table-hover table-style">
     <tr>
-        <th>Price</th>
-        <th>Posted By</th>
-        <th>Station</th>
-        <th>Address</th>
-        <th>Zip Code</th>
+        <th scope="col">Price</th>
+        <th scope="col">Posted By</th>
+        <th scope="col">Station</th>
+        <th scope="col">Address</th>
+        <th scope="col">Zip Code</th>
     </tr>
     <!-- Loop over each object in the prices array -->
     {{#each prices as |price|}}
-        <tr>
+        <tr scope="row">
             <td>${{price.price}}</td>
             <td>{{price.user.name}}</td>
             <td>{{price.station.name}}</td>
-            <td>{{price.station.address}}</td>
+            <td class='pushpin'>{{price.station.address}}</td>
             <td>{{price.station.zip}}</td>
         </tr>
     {{/each}}
 </table>
+{{!-- map sizing  --}}
+<div class="map-style my-4"id='myMap' style='width: 60vw; height: 80vh;'></div>
+
+<footer class="footer-style my-2">Created by TeamHB's <br> Check out our member's GitHub profiles! 
+
+    <div>
+     <a class="footer-text px-1" href="https://github.com/RedComet6"
+            target="_blank">
+            Aidan Chamberlain
+          </a>
+          <a class="footer-text px-1" href="https://github.com/gwenewasko"
+            target="_blank">
+            Gwen Ewasko
+          </a>
+          <a class="footer-text px-1" href="https://github.com/smarr2198"
+            target="_blank">
+            Stephen Marr
+          </a>
+          <a class="footer-text px-1" href="https://github.com/joepamedia/"
+            target="_blank">
+            Joe Palmisano
+          </a>
+    </div>
+</footer>
+
+
 <script src='./js/homepage.js'></script>
+<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=Am4krjad01w8_GGlHlLT0J9PqwIBaWRHbCP6LD8uiR59aTgaK8EwfTPeAMonAJpy&callback=loadMapScenario' async defer></script>

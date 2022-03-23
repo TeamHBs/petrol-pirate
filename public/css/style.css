@@ -90,6 +90,33 @@ li {
     margin-left: -5px;
 }
 
+.map-style {
+    border: 5px solid #065b83;
+    text-align: center;
+    display: flex;
+}
+
+.dropdown {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+.footer-style {
+    text-align: center;
+    padding: 10px;
+}
+
+.footer-text {
+    color: black;
+}
+
+.table-style {
+    border: 5px solid #065b83;
+    text-align: center;
+}
+
 @media (max-width: 768px) {
     .hamburger {
         display: block;
