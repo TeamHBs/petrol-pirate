@@ -37,9 +37,13 @@
             <td>${{price.price}}</td>
             <td>{{price.user.name}}</td>
             <td>{{price.station.name}}</td>
-            <td>{{price.station.address}}</td>
+            <td class='pushpin'>{{price.station.address}}</td>
             <td>{{price.station.zip}}</td>
         </tr>
     {{/each}}
 </table>
+
+<div id='myMap' style='width: 80vw; height: 80vh;'></div>
+
 <script src='./js/homepage.js'></script>
+<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=Am4krjad01w8_GGlHlLT0J9PqwIBaWRHbCP6LD8uiR59aTgaK8EwfTPeAMonAJpy&callback=loadMapScenario' async defer></script>
