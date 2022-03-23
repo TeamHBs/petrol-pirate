@@ -59,6 +59,7 @@
     </tr>
     <!-- Loop over each object in the prices array -->
     {{#each prices as |price|}}
+        {{priced price}}
         <tr scope='row'>
             <td>${{price.price}}</td>
             {{!-- <td>{{price.user.name}}</td> --}}
@@ -71,5 +72,5 @@
 {{!-- map sizing  --}}
 <div class="map-style"id='myMap' style='width: 100%; height: 80vh;'></div>
 
-<script src='./js/homepage.js'></script>
 <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=Am4krjad01w8_GGlHlLT0J9PqwIBaWRHbCP6LD8uiR59aTgaK8EwfTPeAMonAJpy&callback=loadMapScenario' async defer></script>
+<script src='./js/homepage.js'></script>
