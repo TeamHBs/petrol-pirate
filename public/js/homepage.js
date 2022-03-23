@@ -2,6 +2,8 @@ const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
 var pinArray = [];
 var map = null;
+var pricedData = '{{{priced price}}}';
+console.log(pricedData);
 
 const fetchAddresses = async () => {
     const response = await fetch('/api/stations', {
@@ -22,7 +24,7 @@ const fetchAddresses = async () => {
             .then(function (coordData) {
                 // console.log(coordData);
                 const coordinates = coordData.resourceSets[0].resources[0].point.coordinates;
-                console.log(coordData.resourceSets[0].resources[0].point.coordinates);
+                // console.log(coordData.resourceSets[0].resources[0].point.coordinates);
                 const loc = new Microsoft.Maps.Location(coordinates[0], coordinates[1]);
                 const target = new Microsoft.Maps.Pushpin(loc);
                 //Add the pushpin to the map
