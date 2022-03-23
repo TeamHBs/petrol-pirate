@@ -5,6 +5,7 @@ const withAuth = require('../../utils/auth');
 router.get('/', withAuth, async (req, res) => {
     try {
         const stationData = await Station.findAll();
+
         if (stationData) {
             res.status(200).json(stationData);
         }
