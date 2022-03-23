@@ -18,8 +18,13 @@
 <form class='d-flex flex-wrap' action='' id='filterForm'>
     <div class='form-group'>
         <label for='filter'>Filter results by:</label>
+
+        <select name='filter' class='dropdown' id='filterChoice'>
+            <option value='' disabled selected>Select a filter</option>
+
         <select class='dropdown' name='filter' id='filterChoice'>
             <option class='dropdown' value='' disabled selected>Select a filter</option>
+
             <option value='price'>Max Price</option>
             <option value='zip'>Zip Code</option>
         </select>
@@ -29,7 +34,12 @@
         <input type='text' id='filterInput' />
     </div>
     <div class='form-group'>
+
+        <button type='submit' class='btn btn-primary' id='filterSubmit'>Filter</button>
+        <button type='button' class='btn btn-primary' id='resetButton'>Reset</button>
+
         <button type='submit' class='btn btn-primary' id='filterSubmit'>See My Results</button>
+
     </div>
 </form>
 
@@ -39,17 +49,21 @@
 {{! display area }}
 
 <h2>Cheap gas locations:</h2>
+
+<table class='table table-hover'>
+
 <table class="table table-hover table-style">
+
     <tr>
-        <th scope="col">Price</th>
-        <th scope="col">Posted By</th>
-        <th scope="col">Station</th>
-        <th scope="col">Address</th>
-        <th scope="col">Zip Code</th>
+        <th scope='col'>Price</th>
+        <th scope='col'>Posted By</th>
+        <th scope='col'>Station</th>
+        <th scope='col'>Address</th>
+        <th scope='col'>Zip Code</th>
     </tr>
     <!-- Loop over each object in the prices array -->
     {{#each prices as |price|}}
-        <tr scope="row">
+        <tr scope='row'>
             <td>${{price.price}}</td>
             <td>{{price.user.name}}</td>
             <td>{{price.station.name}}</td>

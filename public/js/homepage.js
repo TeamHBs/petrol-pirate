@@ -69,6 +69,10 @@ function loadMapScenario() {
     // });
 }
 
+function resetPage() {
+    window.location.href = 'http://localhost:3001/';
+}
+
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     menu.classList.toggle('active');
@@ -83,4 +87,8 @@ document.querySelectorAll('.nav-link').forEach((n) =>
 
 document.querySelector('#filterSubmit').addEventListener('click', querySubmit);
 
+document.querySelector('#resetButton').addEventListener('click', resetPage);
+
+
 fetchAddresses();
+
