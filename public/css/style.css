@@ -81,6 +81,13 @@ li {
     margin-left: -5px;
 }
 
+.dropdown {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
 @media (max-width: 768px) {
     .hamburger {
         display: block;
