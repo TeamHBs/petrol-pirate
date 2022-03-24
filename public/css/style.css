@@ -8,6 +8,7 @@
 
 a {
     color: white;
+    margin: none;
 }
 .navbar {
     min-height: 80px;
@@ -142,6 +143,11 @@ td {
     .hamburger {
         display: block;
         float: right;
+    }
+
+    .petrol-logo {
+        width: 20%;
+        height: 20%;
     }
 
     .hamburger.active .bar:nth-child(2) {
