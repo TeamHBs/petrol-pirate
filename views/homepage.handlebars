@@ -1,75 +1,59 @@
-{{! <form action='' id='filterForm'>
-    <div class='form-group input-group mb-3'>
-        <button class='btn btn-outline-secondary dropdown-toggle form-group' type='button' data-bs-toggle='dropdown' aria-expanded='false' for='filter'>Filter Search:</button>
-        <ul class='dropdown-menu'>
-            <li><a class='dropdown-item' value='price'>Max Price</a></li>
-            <li><a class='dropdown-item' value='zip'>Zip Code</a></li>
-            <li><hr class='dropdown-divider' /></li>
-            <li><a class='dropdown-item' href='#'>Separated link</a></li>
-        </ul>
-        <input type='text' class='form-control' aria-label='Text input with dropdown button' />
-        <div class='form-group'>
-            <button type='submit' class='btn btn-primary' id='filterSubmit'>Filter</button>
-        </div>
-    </div>
-</form> }}
-
 {{! filter bar }}
 <form class='d-flex flex-wrap' action='' id='filterForm'>
     <div class='form-group'>
         <label for='filter'>Filter results by:</label>
-
         <select class='dropdown' name='filter' id='filterChoice'>
             <option class='dropdown' value='' disabled selected>Select a filter</option>
             <option value='price'>Max Price</option>
             <option value='zip'>Zip Code</option>
         </select>
     </div>
+
     <div class='form-group'>
         <input placeholder='Enter value here...' type='text' id='filterInput' />
     </div>
+
     <div class='form-group'>
         <button type='submit' class='btn btn-primary' id='filterSubmit'>See My Results</button>
         <button type='button' class='btn btn-primary' id='resetButton'>Reset</button>
-        
     </div>
 </form>
 
-{{! history }}
+{{! inform user of successfully adding a price }}
 {{#if message}}
-<div class="alert alert-success" role="alert">
-  <h4 class="alert-heading">Success!</h4>
-  <div>{{message}}</div>
-</div>
+    <div class='alert alert-success' role='alert'>
+        <h4 class='alert-heading'>Success!</h4>
+        <div>{{message}}</div>
+    </div>
 {{/if}}
+
 {{! display area }}
-
 <h2>Cheap gas locations:</h2>
-
-<table bgcolor="#f7cf64"class='table table-hover'>
-
-<table class="table table-hover table-style">
+{{! <table class='table table-hover'> }}
+<table bgcolor='#f7cf64' class='table table-hover table-style'>
     <tr>
         <th scope='col'>Price</th>
-        {{!-- <th scope='col'>Posted By</th> --}}
+        {{! <th scope='col'>Posted By</th> }}
         <th scope='col'>Station</th>
         <th scope='col'>Address</th>
         <th scope='col'>Zip Code</th>
     </tr>
+
     <!-- Loop over each object in the prices array -->
     {{#each prices as |price|}}
         {{!-- {{priced price}} --}}
-        <tr scope='row'>
+        <tr scope='row' class='stationRow'>
             <td>${{price.price}}</td>
             {{!-- <td>{{price.user.name}}</td> --}}
             <td>{{price.station.name}}</td>
-            <td class='pushpin'>{{price.station.address}}</td>
+            <td>{{price.station.address}}</td>
             <td>{{price.station.zip}}</td>
         </tr>
     {{/each}}
 </table>
-{{!-- map sizing  --}}
-<div class="map-style"id='myMap' style='width: 100%; height: 80vh;'></div>
+
+{{! map area  }}
+<div class='map-style' id='myMap' style='width: 100%; height: 80vh;'></div>
 
 <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=Am4krjad01w8_GGlHlLT0J9PqwIBaWRHbCP6LD8uiR59aTgaK8EwfTPeAMonAJpy&callback=loadMapScenario' async defer></script>
 <script src='./js/homepage.js'></script>
