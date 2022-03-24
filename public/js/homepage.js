@@ -1,9 +1,10 @@
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
-var pinArray = [];
+// var pinArray = [];
 var map = null;
-var pricedData = '{{{priced price}}}';
-console.log(pricedData);
+// var pricedData = '{{{priced price}}}';
+// console.log(pricedData);
+// let pinArray = localStorage.getItem('pins') || [];
 
 const fetchAddresses = async () => {
     const response = await fetch('/api/stations', {
@@ -26,16 +27,20 @@ const fetchAddresses = async () => {
                 const coordinates = coordData.resourceSets[0].resources[0].point.coordinates;
                 // console.log(coordData.resourceSets[0].resources[0].point.coordinates);
                 const loc = new Microsoft.Maps.Location(coordinates[0], coordinates[1]);
-                const target = new Microsoft.Maps.Pushpin(loc);
+                const target = new Microsoft.Maps.Pushpin(loc, {
+                    text: '☠️',
+                    color: 'black',
+                });
                 //Add the pushpin to the map
                 map.entities.push(target);
+                target.setOptions({ enableHoverStyle: true });
             });
     });
 };
 
 const querySubmit = async (event) => {
     event.preventDefault();
-    pinArray = [];
+    // pinArray = [];
     const filterChoice = document.querySelector('#filterChoice').value.trim();
     const filterInput = document.querySelector('#filterInput').value.trim();
 
