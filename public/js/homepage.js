@@ -51,7 +51,7 @@ function loadMapScenario() {
         // No need to set credentials if already passed in URL
         center: new Microsoft.Maps.Location(latChicago, lonChicago),
         mapTypeId: Microsoft.Maps.MapTypeId.road,
-        zoom: 10,
+        zoom: 11,
     });
 }
 
