@@ -23,8 +23,6 @@ router.post('/', withAuth, async (req, res) => {
             raw: true,
         });
 
-        console.log(checkStation);
-
         if (checkStation) {
             // update
             Price.update(

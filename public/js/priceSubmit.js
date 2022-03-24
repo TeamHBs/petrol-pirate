@@ -15,11 +15,10 @@ const priceSubmit = async (event) => {
         headers: {
             'Content-Type': 'application/json',
         },
-    }).then((data) => data.json());
+    })
+        .then((data) => data.json())
+        .catch((err) => console.log(err));
 
-    console.log(newStation);
-
-    // if (newStation.ok) {
     //   get station id from db
     const station_id = newStation.id;
     // use id to do post to price model
@@ -27,33 +26,11 @@ const priceSubmit = async (event) => {
         method: 'POST',
         body: JSON.stringify({ price, station_id }),
         headers: { 'Content-Type': 'application/json' },
-    });
-    console.log(newPrice);
-    // }
+    }).catch((err) => console.log(err));
 
-    document.location.replace('/?message=Your Price Has Been Submitted');
-
-    // fetch('/api/users/login', {
-    //     method: 'GET',
-    //     headers: { 'Content-Type': 'application/json' },
-    // }).then((res) =>
-    //     res.json().then((data) => {
-    //         console.log(data);
-    //         const userId = data.id;
-    //         const newPrice = fetch('/api/prices/', {
-    //             method: 'POST',
-    //             body: JSON.stringify({ price, station, userId }),
-    //             headers: { 'Content-Type': 'application/json' },
-    //         });
-    //         console.log(newPrice);
-
-    // if (response.ok) {
-    //     document.location.reload();
-    // } else {
-    //     alert(response.statusText);
-    // }
-    //     })
-    // );
+    if (newPrice.ok) {
+        document.location.replace('/?message=Your Price Has Been Submitted');
+    }
 };
 
 hamburger.addEventListener('click', () => {
