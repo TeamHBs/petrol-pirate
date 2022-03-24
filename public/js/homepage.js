@@ -77,7 +77,7 @@ function loadMapScenario() {
 }
 
 function resetPage() {
-    window.location.href = 'http://localhost:3001/';
+    document.location.replace('/');
 }
 
 hamburger.addEventListener('click', () => {
