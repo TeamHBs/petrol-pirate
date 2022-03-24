@@ -1,21 +1,21 @@
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
-// var pinArray = [];
 var map = null;
-// var pricedData = '{{{priced price}}}';
-// console.log(pricedData);
-// let pinArray = localStorage.getItem('pins') || [];
 
 const fetchAddresses = async () => {
-    const response = await fetch('/api/stations', {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-    });
+    // const response = await fetch('/api/stations', {
+    //     method: 'GET',
+    //     headers: { 'Content-Type': 'application/json' },
+    // });
 
-    const data = await response.json();
+    // const data = await response.json();
+    const data = document.querySelectorAll('.stationRow');
 
     data.forEach((station) => {
-        fetch(`http://dev.virtualearth.net/REST/v1/Locations?postalCode=${station.zip}&addressLine=${station.address}&key=Am4krjad01w8_GGlHlLT0J9PqwIBaWRHbCP6LD8uiR59aTgaK8EwfTPeAMonAJpy`, {
+        const tableCoord = { address: station.childNodes[5].innerHTML, zip: station.childNodes[7].innerHTML };
+        console.log(tableCoord);
+
+        fetch(`http://dev.virtualearth.net/REST/v1/Locations?postalCode=${tableCoord.zip}&addressLine=${tableCoord.address}&key=Am4krjad01w8_GGlHlLT0J9PqwIBaWRHbCP6LD8uiR59aTgaK8EwfTPeAMonAJpy`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         })
@@ -23,9 +23,7 @@ const fetchAddresses = async () => {
                 return coord.json();
             })
             .then(function (coordData) {
-                // console.log(coordData);
                 const coordinates = coordData.resourceSets[0].resources[0].point.coordinates;
-                // console.log(coordData.resourceSets[0].resources[0].point.coordinates);
                 const loc = new Microsoft.Maps.Location(coordinates[0], coordinates[1]);
                 const target = new Microsoft.Maps.Pushpin(loc, {
                     text: '☠️',
@@ -40,45 +38,21 @@ const fetchAddresses = async () => {
 
 const querySubmit = async (event) => {
     event.preventDefault();
-    // pinArray = [];
     const filterChoice = document.querySelector('#filterChoice').value.trim();
     const filterInput = document.querySelector('#filterInput').value.trim();
-
-    // const filter = await fetch(`/?${filterChoice}=${filterInput}`, {
-    //     method: 'GET',
-    //     headers: { 'Content-Type': 'application/json' },
-    // });
-
-    // if (!filter.ok) {
-    //     // If fail, alert
-    //     alert(filter.statusText);
-    // }
-
-    // const response = await fetch('/api/prices', {
-    //     method: 'GET',
-    //     headers: { 'Content-Type': 'application/json' },
-    // });
 
     document.location.replace(`/?${filterChoice}=${filterInput}`);
 };
 
 function loadMapScenario() {
-    const lat = 41.8781;
-    const lon = -87.6298;
+    const latChicago = 41.8781;
+    const lonChicago = -87.6298;
     map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
-        /* No need to set credentials if already passed in URL */
-        center: new Microsoft.Maps.Location(lat, lon),
+        // No need to set credentials if already passed in URL
+        center: new Microsoft.Maps.Location(latChicago, lonChicago),
         mapTypeId: Microsoft.Maps.MapTypeId.road,
         zoom: 10,
     });
-    // console.log(pinArray);
-    // // loop through location array to create all the
-    // pinArray.forEach((pin) => {
-    //     const loc = new Microsoft.Maps.Location(pin.lat, pin.lon);
-    //     const target = new Microsoft.Maps.Pushpin(loc);
-    //     //Add the pushpin to the map
-    //     map.entities.push(target);
-    // });
 }
 
 function resetPage() {
