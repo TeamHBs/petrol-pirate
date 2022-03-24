@@ -2,21 +2,21 @@
     {
         "name": "Aidan",
         "email": "aidan@hotmail.com",
-        "password": "password12345"
+        "password": "password"
     },
     {
         "name": "Gwen",
         "email": "gwen@gmail.com",
-        "password": "password12345"
+        "password": "password"
     },
     {
         "name": "Joe",
         "email": "joe@aol.com",
-        "password": "password12345"
+        "password": "password"
     },
     {
         "name": "Stephen",
         "email": "stephen@aol.com",
-        "password": "password12345"
+        "password": "password"
     }
 ]

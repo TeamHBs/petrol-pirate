@@ -5,12 +5,12 @@
         "user_id": 1
     },
     {
-        "price": 4.11,
+        "price": 5.11,
         "station_id": 2,
         "user_id": 2
     },
     {
-        "price": 4.21,
+        "price": 6.21,
         "station_id": 3,
         "user_id": 3
     }
