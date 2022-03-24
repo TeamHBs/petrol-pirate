@@ -12,13 +12,16 @@ Station.init(
         },
         name: {
             type: DataTypes.STRING,
+            allowNull: false,
         },
         address: {
             type: DataTypes.STRING,
+            allowNull: false,
             unique: true,
         },
         zip: {
             type: DataTypes.STRING,
+            allowNull: false,
         },
     },
     {
