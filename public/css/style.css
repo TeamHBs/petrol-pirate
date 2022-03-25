@@ -131,6 +131,11 @@ li {
     text-overflow: '';
 }
 
+.footer-arrangement {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .footer-style {
     text-align: center;
     padding: 3rem;
