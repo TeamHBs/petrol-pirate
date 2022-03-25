@@ -12,7 +12,7 @@
         <link rel='stylesheet' href='/css/style.css' />
     </head>
 
-    <body class="gradient-bg">
+    <body class='gradient-bg'>
         <div class='flex-column justify-space-around main-text'>
             <header class='display-flex justify-space-between align-center p-2'>
 
@@ -25,8 +25,8 @@
                     <!-- Conditionally render login or logout links -->
                     <ul class='menu'>
                         {{#if logged_in}}
-                            <li><button class='btn btn-primary rounded-pill px-4 py-3'><a href='/submit'>Submit a Gas Price</a></button></li>
-                            <li class='text-white nav-link btn-primary rounded-pill px-4 py-3' id='logout'><a href='#' class=''>Logout</a></li>
+                            <li><button class='btn btn-primary rounded-pill px-4 py-3 text-decoration'><a href='/submit'>Submit a Gas Price</a></button></li>
+                            <li class='text-white nav-link btn-primary rounded-pill px-4 py-3 text-decoration' id='logout'><a href='#' class=''>Logout</a></li>
                         {{else}}
                             <li><button class='btn nav-btn nav-link btn btn-primary rounded-pill px-4 py-3'><a href='/login' class=''>Login</a></button></li>
                         {{/if}}
@@ -47,38 +47,38 @@
                 <br />
                 <p>Check out our member's GitHub profiles!</p>
                 <div>
-                    
-<div class="d-flex footer-layout">                             
-    <div class="card footer-color" style="width: 20rem;">
-            <div class="card-body">
-            <h5 class="card-title">Aidan Chamberlain</h5>
-                <a href='https://github.com/RedComet6' target="_blank" class="card-link">GitHub</a>
-                <a href="https://www.linkedin.com/in/aidan-chamberlain-776b8b90/" target="_blank" class="card-link">LinkedIn</a>
-    </div>
-</div>
-    <div class="card footer-color" style="width: 20rem;">
-            <div class="card-body">
-            <h5 class="card-title">Gwen Ewasko</h5>
-                <a href="#" class="card-link">GitHub</a>
-                <a href="#" class="card-link">LinkedIn</a>
-    </div>
-</div>
-<div class="card footer-color" style="width: 20rem;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-<div class="card footer-color" style="width: 20rem;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-</div> 
-                    {{!-- <a class='px-1 footer-card' href='https://github.com/RedComet6' target='_blank'>
+
+                    <div class='d-flex footer-layout'>
+                        <div class='card footer-color' style='width: 20rem;'>
+                            <div class='card-body'>
+                                <h5 class='card-title'>Aidan Chamberlain</h5>
+                                <a href='https://github.com/RedComet6' target='_blank' class='card-link'>GitHub</a>
+                                <a href='https://www.linkedin.com/in/aidan-chamberlain-776b8b90/' target='_blank' class='card-link'>LinkedIn</a>
+                            </div>
+                        </div>
+                        <div class='card footer-color' style='width: 20rem;'>
+                            <div class='card-body'>
+                                <h5 class='card-title'>Gwen Ewasko</h5>
+                                <a href='#' class='card-link'>GitHub</a>
+                                <a href='#' class='card-link'>LinkedIn</a>
+                            </div>
+                        </div>
+                        <div class='card footer-color' style='width: 20rem;'>
+                            <div class='card-body'>
+                                <h5 class='card-title'>Card title</h5>
+                                <a href='#' class='card-link'>Card link</a>
+                                <a href='#' class='card-link'>Another link</a>
+                            </div>
+                        </div>
+                        <div class='card footer-color' style='width: 20rem;'>
+                            <div class='card-body'>
+                                <h5 class='card-title'>Card title</h5>
+                                <a href='#' class='card-link'>Card link</a>
+                                <a href='#' class='card-link'>Another link</a>
+                            </div>
+                        </div>
+                    </div>
+                    {{! <a class='px-1 footer-card' href='https://github.com/RedComet6' target='_blank'>
                         Aidan Chamberlain
                     </a>
                     |
@@ -92,7 +92,7 @@
                     |
                     <a class='px-1' href='https://github.com/joepamedia/' target='_blank'>
                         Joe Palmisano
-                    </a> --}}
+                    </a> }}
                 </div>
             </footer>
         </div>

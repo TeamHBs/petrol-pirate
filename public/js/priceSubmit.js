@@ -1,7 +1,8 @@
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
+var snackbar = document.getElementById('snackbar');
 
-const priceSubmit = (event) => {
+const priceSubmit = async (event) => {
     event.preventDefault();
 
     const price = document.querySelector('#priceInput').value.trim();
@@ -9,20 +10,28 @@ const priceSubmit = (event) => {
     const address = document.querySelector('#addressInput').value.trim();
     const zip = document.querySelector('#zipInput').value.trim();
 
-    const newStation = fetch('/api/stations', {
+    if (price || name || address || zip === '') {
+        snackbar.className = 'show';
+        setTimeout(function () {
+            snackbar.className = snackbar.className.replace('show', '');
+            document.location.replace('/submit');
+        }, 3000);
+    }
+
+    const newStation = await fetch('/api/stations', {
         method: 'POST',
         body: JSON.stringify({ price, name, address, zip }),
         headers: {
             'Content-Type': 'application/json',
         },
-    })
-        .then((data) => data.json())
-        .catch((err) => console.log(err));
+    });
 
     //   get station id from db
-    const station_id = newStation.id;
+    const station = await newStation.json();
+    const station_id = station.id;
+
     // use id to do post to price model
-    const newPrice = fetch('/api/prices/', {
+    const newPrice = await fetch('/api/prices/', {
         method: 'POST',
         body: JSON.stringify({ price, station_id }),
         headers: { 'Content-Type': 'application/json' },
@@ -30,6 +39,11 @@ const priceSubmit = (event) => {
 
     if (newPrice.ok && newStation.ok) {
         document.location.replace('/?message=Your Price Has Been Submitted');
+    } else {
+        snackbar.className = 'show';
+        setTimeout(function () {
+            snackbar.className = snackbar.className.replace('show', '');
+        }, 3000);
     }
 };
 
