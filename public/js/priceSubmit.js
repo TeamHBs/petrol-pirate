@@ -14,7 +14,7 @@ const priceSubmit = async (event) => {
         snackbar.className = 'show';
         setTimeout(function () {
             snackbar.className = snackbar.className.replace('show', '');
-            document.location.replace('/submit');
+            return;
         }, 3000);
     }
 
