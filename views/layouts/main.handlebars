@@ -12,14 +12,17 @@
         <link rel='stylesheet' href='/css/style.css' />
     </head>
 
-    <body>
-        <div class='flex-column justify-space-around gradient-bg main-text'>
+    <body class="gradient-bg">
+        <div class='flex-column justify-space-around main-text'>
             <header class='display-flex justify-space-between align-center p-2'>
 
                 <nav class='flex navbar w-100'>
-                    {{! homepage link icon }}
-                    <a href='/'><img src='/img/petrol-pirate-logo.gif' alt='petrol pirate logo' width='30%' height='30%' /></a>
-                    {{! Conditionally render login or logout links }}
+                    <a class='d-b' href='/' style='height: 7rem;'><img style='max-width: 100%; max-height: 100%' src='/img/petrol-pirate-logo.gif' alt='petrol pirate logo' /></a>
+                    {{! <h1>
+                        <a class='petrol-pirate' href='/'>Petrol Pirate</a>
+                    </h1> }}
+                    <!-- Conditionally render login or logout links -->
+
                     <ul class='menu'>
                         {{#if logged_in}}
                             <li><button class='btn btn-primary rounded-pill px-4 py-3'><a href='/submit'>Submit a Gas Price</a></button></li>
@@ -46,21 +49,37 @@
                 <br />
                 <p>Check out our member's GitHub profiles!</p>
                 <div>
-                    <a class='px-1' href='https://github.com/RedComet6' target='_blank'>
-                        Aidan Chamberlain
-                    </a>
-                    |
-                    <a class='px-1' href='https://github.com/gwenewasko' target='_blank'>
-                        Gwen Ewasko
-                    </a>
-                    |
-                    <a class='px-1' href='https://github.com/smarr2198' target='_blank'>
-                        Stephen Marr
-                    </a>
-                    |
-                    <a class='px-1' href='https://github.com/joepamedia/' target='_blank'>
-                        Joe Palmisano
-                    </a>
+                    
+<div class="d-flex footer-layout">                             
+    <div class="card footer-color" style="width: 20rem;">
+            <div class="card-body">
+            <h5 class="card-title">Aidan Chamberlain</h5>
+                <a href='https://github.com/RedComet6' target="_blank" class="card-link">GitHub</a>
+                <a href="https://www.linkedin.com/in/aidan-chamberlain-776b8b90/" target="_blank" class="card-link">LinkedIn</a>
+    </div>
+</div>
+    <div class="card footer-color" style="width: 20rem;">
+            <div class="card-body">
+            <h5 class="card-title">Gwen Ewasko</h5>
+                <a href="#" class="card-link">GitHub</a>
+                <a href="#" class="card-link">LinkedIn</a>
+    </div>
+</div>
+<div class="card footer-color" style="width: 20rem;">
+  <div class="card-body">
+    <h5 class="card-title">Stephen Marr</h5>
+    <a href="https://github.com/smarr2198" class="card-link">GitHub</a>
+    <a href="https://www.linkedin.com/in/stephen-marr-b15b74225/" class="card-link">LinkedIn</a>
+  </div>
+</div>
+<div class="card footer-color" style="width: 20rem;">
+  <div class="card-body">
+    <h5 class="card-title">Joe Palmisano</h5>
+    <a href="https://github.com/joepamedia/" class="card-link">GitHub</a>
+    <a href="https://www.linkedin.com/in/joseph-palmisano-jnp/" class="card-link">LinkedIn</a>
+  </div>
+</div>
+</div> 
                 </div>
             </footer>
         </div>
