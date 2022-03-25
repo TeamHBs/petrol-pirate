@@ -12,16 +12,12 @@
         <link rel='stylesheet' href='/css/style.css' />
     </head>
 
-    <body class="gradient-bg">
+    <body class='gradient-bg'>
         <div class='flex-column justify-space-around main-text'>
             <header class='display-flex justify-space-between align-center p-2'>
 
                 <nav class='flex navbar w-100'>
                     <a class='d-b' href='/' style='height: 7rem;'><img style='max-width: 100%; max-height: 100%' src='/img/petrol-pirate-logo.gif' alt='petrol pirate logo' /></a>
-
-                    {{! <h1>
-                        <a class='petrol-pirate' href='/'>Petrol Pirate</a>
-                    </h1> }}
                     <!-- Conditionally render login or logout links -->
                     <ul class='menu'>
                         {{#if logged_in}}
@@ -31,6 +27,7 @@
                             <li><button class='btn nav-btn nav-link btn btn-primary rounded-pill px-4 py-3'><a href='/login' class=''>Login</a></button></li>
                         {{/if}}
                     </ul>
+                    {{! hamburger menu for mobile displays }}
                     <div class='hamburger'>
                         <span class='hamburger-bar'></span>
                         <span class='hamburger-bar'></span>
@@ -39,9 +36,10 @@
                 </nav>
             </header>
             <main class='container container-fluid mt-5 m-top'>
-                <!-- Render the sub layout -->
+                {{! Render the sub-layout }}
                 {{{body}}}
             </main>
+            {{! footer with our personal info }}
             <footer class='footer-style my-2'>
                 Created by TeamHB's
                 <br />
@@ -81,11 +79,9 @@
                 </div>
             </footer>
         </div>
-
         <!-- Render script for logged in users only -->
         {{#if logged_in}}
             <script src='/js/logout.js'></script>
         {{/if}}
     </body>
-
 </html>
