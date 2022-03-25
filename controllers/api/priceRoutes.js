@@ -3,6 +3,7 @@ const { Price } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
+    console.log(req.body);
     try {
         const newPrice = await Price.create({
             ...req.body,
