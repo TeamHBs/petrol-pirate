@@ -1,20 +1,23 @@
+{{! script to pull in Map constructor definition }}
 <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=Am4krjad01w8_GGlHlLT0J9PqwIBaWRHbCP6LD8uiR59aTgaK8EwfTPeAMonAJpy&callback=loadMapScenario'></script>
-{{! filter bar }}
+{{! filter area }}
 <form class='d-flex flex-wrap' action='' id='filterForm'>
     <div class='form-group'>
-        <h2>Search gas stations by price or zip code</h2>
+        <h2>Search gas stations by max price or zip code</h2>
         <label class='mr-3' for='filter'><i>Filter results by:</i></label>
+        {{! dropdown with filter options }}
         <select class='dropdown' name='filter' id='filterChoice'>
             <option class='dropdown' value='' disabled selected>Select a filter</option>
             <option value='price'>Max Price</option>
             <option value='zip'>Zip Code</option>
         </select>
     </div>
-
+    {{! input area for user to provide values to filter on }}
     <div class='form-group'>
         <input class='p-2' placeholder='Enter value here...' type='text' id='filterInput' />
     </div>
 
+    {{! buttons to activate filter or reset to remove filters }}
     <div class='form-group'>
         <button type='submit' class='btn btn-primary rounded-pill' id='filterSubmit'>See My Results</button>
         <button type='button' class='btn btn-primary rounded-pill' id='resetButton'>Reset</button>
@@ -31,22 +34,19 @@
 
 {{! display area }}
 <h2 class=''>Cheap gas locations:</h2>
-{{! <table class='table table-hover'> }}
+{{! table with submitted data }}
 <table bgcolor='#f7cf64' class='table table-hover table-style'>
     <tr>
         <th scope='col'>Price</th>
-        {{! <th scope='col'>Posted By</th> }}
         <th scope='col'>Station</th>
         <th scope='col'>Address</th>
         <th scope='col'>Zip Code</th>
     </tr>
 
-    <!-- Loop over each object in the prices array -->
+    {{! Loop over each object in the prices array to make a row for each }}
     {{#each prices as |price|}}
-        {{!-- {{priced price}} --}}
         <tr scope='row' class='stationRow'>
             <td>${{price.price}}</td>
-            {{!-- <td>{{price.user.name}}</td> --}}
             <td>{{price.station.name}}</td>
             <td>{{price.station.address}}</td>
             <td>{{price.station.zip}}</td>
