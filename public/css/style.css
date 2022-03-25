@@ -22,6 +22,10 @@ a {
     color: white !important;
 }
 
+.d-b {
+    display: block;
+}
+
 header {
     background-color: #065b83;
 }
@@ -137,6 +141,10 @@ td {
 .gradient-bg {
     background: rgb(247, 207, 100);
     background: linear-gradient(0deg, rgba(247, 207, 100, 1) 6%, rgba(6, 91, 131, 1) 62%, rgba(45, 62, 80, 1) 95%);
+}
+
+.w-30 {
+    width: 30%;
 }
 
 @media (max-width: 768px) {
