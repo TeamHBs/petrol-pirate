@@ -28,7 +28,7 @@ const priceSubmit = async (event) => {
         headers: { 'Content-Type': 'application/json' },
     }).catch((err) => console.log(err));
 
-    if (newPrice.ok) {
+    if (newPrice.ok && newStation.ok) {
         document.location.replace('/?message=Your Price Has Been Submitted');
     }
 };

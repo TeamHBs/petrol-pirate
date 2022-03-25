@@ -13,7 +13,6 @@ const fetchAddresses = async () => {
 
     data.forEach((station) => {
         const tableCoord = { address: station.childNodes[5].innerHTML, zip: station.childNodes[7].innerHTML };
-        console.log(tableCoord);
 
         fetch(`http://dev.virtualearth.net/REST/v1/Locations?postalCode=${tableCoord.zip}&addressLine=${tableCoord.address}&key=Am4krjad01w8_GGlHlLT0J9PqwIBaWRHbCP6LD8uiR59aTgaK8EwfTPeAMonAJpy`, {
             method: 'GET',
