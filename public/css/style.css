@@ -52,6 +52,8 @@ li {
 
 .footer-color {
     background-color: #065b83;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .footer-layout {
@@ -131,7 +133,7 @@ li {
 
 .footer-style {
     text-align: center;
-    padding: 10px;
+    padding: 3rem;
 }
 
 .table-style {
