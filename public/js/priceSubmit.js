@@ -1,7 +1,7 @@
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
 
-const priceSubmit = async (event) => {
+const priceSubmit = (event) => {
     event.preventDefault();
 
     const price = document.querySelector('#priceInput').value.trim();
@@ -9,7 +9,7 @@ const priceSubmit = async (event) => {
     const address = document.querySelector('#addressInput').value.trim();
     const zip = document.querySelector('#zipInput').value.trim();
 
-    const newStation = await fetch('/api/stations', {
+    const newStation = fetch('/api/stations', {
         method: 'POST',
         body: JSON.stringify({ price, name, address, zip }),
         headers: {
@@ -22,7 +22,7 @@ const priceSubmit = async (event) => {
     //   get station id from db
     const station_id = newStation.id;
     // use id to do post to price model
-    const newPrice = await fetch('/api/prices/', {
+    const newPrice = fetch('/api/prices/', {
         method: 'POST',
         body: JSON.stringify({ price, station_id }),
         headers: { 'Content-Type': 'application/json' },
