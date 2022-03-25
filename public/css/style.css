@@ -159,6 +159,12 @@ td {
     text-decoration: none;
 }
 
+.img-sm {
+    width: 35%;
+    padding: 1.5rem;
+    color: #065b83;
+}
+
 #snackbar {
     visibility: hidden; /* Hidden by default. Visible on click */
     min-width: 250px; /* Set a default minimum width */
