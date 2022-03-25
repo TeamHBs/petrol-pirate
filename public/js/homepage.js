@@ -3,35 +3,27 @@ const menu = document.querySelector('.menu');
 var map = null;
 
 const fetchAddresses = async () => {
-    // const response = await fetch('/api/stations', {
-    //     method: 'GET',
-    //     headers: { 'Content-Type': 'application/json' },
-    // });
-
-    // const data = await response.json();
     const data = document.querySelectorAll('.stationRow');
 
-    data.forEach((station) => {
+    data.forEach(async (station) => {
         const tableCoord = { address: station.childNodes[5].innerHTML, zip: station.childNodes[7].innerHTML };
 
-        fetch(`https://dev.virtualearth.net/REST/v1/Locations?postalCode=${tableCoord.zip}&addressLine=${tableCoord.address}&key=Am4krjad01w8_GGlHlLT0J9PqwIBaWRHbCP6LD8uiR59aTgaK8EwfTPeAMonAJpy`, {
+        const fetchLoc = await fetch(`https://dev.virtualearth.net/REST/v1/Locations?postalCode=${tableCoord.zip}&addressLine=${tableCoord.address}&key=Am4krjad01w8_GGlHlLT0J9PqwIBaWRHbCP6LD8uiR59aTgaK8EwfTPeAMonAJpy`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
-        })
-            .then(function (coord) {
-                return coord.json();
-            })
-            .then(function (coordData) {
-                const coordinates = coordData.resourceSets[0].resources[0].point.coordinates;
-                const loc = new Microsoft.Maps.Location(coordinates[0], coordinates[1]);
-                const target = new Microsoft.Maps.Pushpin(loc, {
-                    text: '☠️',
-                    color: 'black',
-                });
-                //Add the pushpin to the map
-                map.entities.push(target);
-                target.setOptions({ enableHoverStyle: true });
-            });
+        });
+
+        const coordData = await fetchLoc.json();
+        const coordinates = coordData.resourceSets[0].resources[0].point.coordinates;
+        const loc = new Microsoft.Maps.Location(coordinates[0], coordinates[1]);
+        const target = new Microsoft.Maps.Pushpin(loc, {
+            text: '☠️',
+            color: 'black',
+        });
+        //Add the pushpin to the map
+        map.entities.push(target);
+        target.setOptions({ enableHoverStyle: true });
+        // });
     });
 };
 
