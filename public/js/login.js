@@ -1,5 +1,6 @@
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
+var snackbar = document.getElementById('snackbar');
 
 const loginFormHandler = async (event) => {
     event.preventDefault();
@@ -20,7 +21,10 @@ const loginFormHandler = async (event) => {
             // If successful, redirect the browser to the  page
             document.location.replace('/');
         } else {
-            alert(response.statusText);
+            snackbar.className = 'show';
+            setTimeout(function () {
+                snackbar.className = snackbar.className.replace('show', '');
+            }, 3000);
         }
     }
 };
@@ -42,7 +46,10 @@ const signupFormHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/');
         } else {
-            alert(response.statusText);
+            snackbar.className = 'show';
+            setTimeout(function () {
+                snackbar.className = snackbar.className.replace('show', '');
+            }, 3000);
         }
     }
 };
