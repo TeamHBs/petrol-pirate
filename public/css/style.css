@@ -40,6 +40,20 @@ li {
     background-color: white;
 }
 
+.footer-card {
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #065b83;
+}
+
+.footer-color {
+    background-color: #065b83;
+}
+
+.footer-layout {
+    padding: 10px;
+}
+
 .hamburger-bar {
     display: block;
     width: 25px;
