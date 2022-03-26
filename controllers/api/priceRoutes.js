@@ -1,10 +1,12 @@
+// assign vars to required packages, models, and helpers
 const router = require('express').Router();
 const { Price } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// new price route
 router.post('/', withAuth, async (req, res) => {
-    console.log(req.body);
     try {
+        // create new price in database
         const newPrice = await Price.create({
             ...req.body,
             user_id: req.session.user_id,
@@ -16,8 +18,10 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
+// remove price route
 router.delete('/:id', withAuth, async (req, res) => {
     try {
+        // remove price from database
         const priceData = await Price.destroy({
             where: {
                 id: req.params.id,
@@ -25,6 +29,7 @@ router.delete('/:id', withAuth, async (req, res) => {
             },
         });
 
+        // if specified price does not exist, notify user
         if (!priceData) {
             res.status(404).json({ message: 'No price found with this id!' });
             return;

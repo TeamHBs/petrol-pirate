@@ -1,15 +1,18 @@
+// assign vars to required packages, models, and helpers
 const router = require('express').Router();
 const { Price, Station, User } = require('../models');
 const { Op } = require('sequelize');
 const withAuth = require('../utils/auth');
 
+// homepage
 router.get('/', async (req, res) => {
+    // initialize where rules
     let whereClause = {};
-
+    // if a zip is passed as a query, add zip to where rules
     if (req.query.zip) {
         whereClause.zip = { zip: req.query.zip };
     }
-
+    // if a max price is passed as a query, add price to where rules
     if (req.query.price) {
         whereClause.price = {
             price: {
@@ -17,7 +20,7 @@ router.get('/', async (req, res) => {
             },
         };
     }
-
+    // if a message is passed as as query, assign it
     const message = req.query.message || '';
 
     try {
@@ -45,7 +48,7 @@ router.get('/', async (req, res) => {
             res.redirect('/login');
             return;
         }
-
+        // send user to homepage
         res.render('homepage', {
             prices,
             logged_in: req.session.logged_in,
@@ -56,49 +59,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-// price history route
-// router.get('/price/:id', async (req, res) => {
-//     try {
-//         const priceData = await Price.findByPk(req.params.id, {
-//             include: [
-//                 {
-//                     model: User,
-//                     attributes: ['name'],
-//                 },
-//             ],
-//         });
-
-//         const price = priceData.get({ plain: true });
-
-//         res.render('price', {
-//             ...price,
-//             logged_in: req.session.logged_in,
-//         });
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
-
-// // Use withAuth middleware to prevent access to route
-// router.get('/profile', withAuth, async (req, res) => {
-//     try {
-//         // Find the logged in user based on the session ID
-//         const userData = await User.findByPk(req.session.user_id, {
-//             attributes: { exclude: ['password'] },
-//             include: [{ model: Price }],
-//         });
-
-//         const user = userData.get({ plain: true });
-
-//         res.render('profile', {
-//             ...user,
-//             logged_in: true,
-//         });
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
-
 router.get('/submit', (req, res) => {
     // If the user is already logged in, redirect the request to another route
     if (!req.session.logged_in) {
@@ -106,6 +66,7 @@ router.get('/submit', (req, res) => {
         return;
     }
 
+    // send user to submission page
     res.render('submit', {
         logged_in: req.session.logged_in,
     });
@@ -117,7 +78,7 @@ router.get('/login', (req, res) => {
         res.redirect('/');
         return;
     }
-
+    //send user to login page
     res.render('login');
 });
 
