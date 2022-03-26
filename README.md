@@ -7,6 +7,7 @@
 -   [Contributing](./README.md#contributing)
 -   [Screenshot](./README.md#screenshot)
 -   [Links to Application](./README.md#links-to-application)
+-   [Presentation](./README.md#presentation)
 -   [Questions](./README.md#questions)
 
 ## Description
