@@ -2,6 +2,7 @@ const User = require('./User');
 const Station = require('./Station');
 const Price = require('./Price');
 
+// established table relationships
 User.hasMany(Price, {
     foreignKey: 'user_id',
 });

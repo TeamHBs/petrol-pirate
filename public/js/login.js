@@ -1,7 +1,9 @@
+// assign vars to html elements
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
 var snackbar = document.getElementById('snackbar');
 
+// handles the login for existing user
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
@@ -29,13 +31,16 @@ const loginFormHandler = async (event) => {
     }
 };
 
+// handles sign up for new user
 const signupFormHandler = async (event) => {
     event.preventDefault();
 
+    // assign vars to form inputs
     const name = document.querySelector('#name-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
 
+    // if all inputs exist, post new user
     if (name && email && password) {
         const response = await fetch('/api/users', {
             method: 'POST',
@@ -43,9 +48,11 @@ const signupFormHandler = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
 
+        // if post succeeds, redirect to homepage
         if (response.ok) {
             document.location.replace('/');
         } else {
+            // if user post fails, notify user
             snackbar.className = 'show';
             setTimeout(function () {
                 snackbar.className = snackbar.className.replace('show', '');
@@ -54,11 +61,13 @@ const signupFormHandler = async (event) => {
     }
 };
 
+// listener for hamburger menu to show on screen
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     menu.classList.toggle('active');
 });
 
+// listener to remove hamburger menu
 document.querySelectorAll('.nav-link').forEach((n) =>
     n.addEventListener('click', () => {
         hamburger.classList.remove('active');
@@ -66,6 +75,7 @@ document.querySelectorAll('.nav-link').forEach((n) =>
     })
 );
 
+// listener for login form submission
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
-
+// listener for sign up form submission
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);

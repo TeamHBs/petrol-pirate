@@ -1,9 +1,12 @@
+// assign vars to required packages, models, and helpers
 const router = require('express').Router();
 const { Station, Price } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// get all stations
 router.get('/', withAuth, async (req, res) => {
     try {
+        // select all stations in database
         const stationData = await Station.findAll();
 
         if (stationData) {
@@ -14,8 +17,10 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
+// new station route
 router.post('/', withAuth, async (req, res) => {
     try {
+        // find a station with inputted address
         const checkStation = await Station.findOne({
             where: {
                 address: req.body.address,
@@ -23,6 +28,7 @@ router.post('/', withAuth, async (req, res) => {
             raw: true,
         });
 
+        // if inputted address already exists in database, update that station's price
         if (checkStation) {
             // update
             Price.update(
@@ -35,6 +41,7 @@ router.post('/', withAuth, async (req, res) => {
             );
             res.status(200);
         } else if (checkStation === null) {
+            // if the inputted address does not exist in database, add a new station
             const stationData = await Station.create({ name: req.body.name, address: req.body.address, zip: req.body.zip });
             res.status(200).send(stationData.dataValues);
         }
