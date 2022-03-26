@@ -11,7 +11,7 @@
 
 ## Description
 
-Petrol Pirate is an app where users may sign-in/sign-up and then view and submit low gas prices. When a user starts the application, they are presented a login page. Exisitng users can input their credentials and login; new users can input their information to add a new user to the database. When a user logs in, they are presented with the homepage showing the stations and prices along with a map showing a pin on each station. A user can choose a filter from a dropdown, input a value to filter on, and the table/map will then update to only show prices that pass the filter. A user can choose to submit a new price by clicking the button on the nav bar at the top of the page. On the submission page, a user is presented a form to fill out with the desired information. When a user submits the form and the address is not extant in the database, it will add the user's input to the database as a new price. If the user submits an address that already exists in the database, it will update that price in the database. After submission, a user is returned to the homepage with a notification of successfully adding/updating a price.
+Petrol Pirate is an app where users may sign-in/sign-up and then view and submit low gas prices. When a user starts the application, they are presented a login page. Existing users can input their credentials and login; new users can input their information to add a new user to the database. When a user logs in, they are presented with the homepage showing the stations and prices along with a map showing a pin on each station. A user can choose a filter from a dropdown, input a value to filter on, and the table/map will then update to only show prices that pass the filter. A user can choose to submit a new price by clicking the button on the nav bar at the top of the page. On the submission page, a user is presented a form to fill out with the desired information. When a user submits the form and the address is not extant in the database, it will add the user's input to the database as a new price. If the user submits an address that already exists in the database, it will update that price in the database. After submission, a user is returned to the homepage with a notification of successfully adding/updating a price.
 
 ## License
 
@@ -36,6 +36,10 @@ If you wish to contribute to our content, please contact one of us at:
 -   Here is the repo: [https://github.com/TeamHBs/petrol-pirate](https://github.com/TeamHBs/petrol-pirate)
 -   Here is the heroku: [https://hbs-project-two.herokuapp.com/](https://hbs-project-two.herokuapp.com/)
 -   Here is the pages: [https://teamhbs.github.io/petrol-pirate/](https://teamhbs.github.io/petrol-pirate/)
+
+## Presentation
+
+- Here is our presentation: [Petrol Pirates Project Presentation](https://docs.google.com/presentation/d/1GYNQqAe7UTbQeLeSMZM7rZ5VL2V2hxnIroYs5TIFYaM/edit?usp=sharing)
 
 ## Questions
 
