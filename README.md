@@ -22,10 +22,10 @@ This software is licensed to MIT, for more information you may visit this link:
 
 If you wish to contribute to our content, please contact one of us at:
 
-asunshine99@gmail.com
-gwenewasko@gmail.com
-smarr2198@gmail.com
-josephpalmisano18@gmail.com
+- asunshine99@gmail.com
+- gwenewasko@gmail.com
+- smarr2198@gmail.com
+- josephpalmisano18@gmail.com
 
 ## Screenshot
 
@@ -43,20 +43,20 @@ If you have any questions, you may contact:
 
 #### Aidan Chamberlain
 
-Email: asunshine99@gmail.com  
-Github Profile: [https://www.github.com/RedComet6](https://www.github.com/RedComet6)
+- Email: asunshine99@gmail.com  
+- Github Profile: [https://www.github.com/RedComet6](https://www.github.com/RedComet6)
 
 #### Gwen Ewasko
 
-Email: gwenewasko@gmail.com  
-Github Profile: [https://github.com/gwenewasko](https://github.com/gwenewasko)
+- Email: gwenewasko@gmail.com  
+- Github Profile: [https://github.com/gwenewasko](https://github.com/gwenewasko)
 
 #### Stephen Marr
 
-Email: smarr2198@gmail.com
-Github Profile: [https://www.github.com/smarr2198](https://www.github.com/smarr2198)
+- Email: smarr2198@gmail.com
+- Github Profile: [https://www.github.com/smarr2198](https://www.github.com/smarr2198)
 
 #### Joe Palmisano
 
-Email: josephpalmisano18@gmail.com
-Github Profile: [https://github.com/joepamedia](https://github.com/joepamedia)
+- Email: josephpalmisano18@gmail.com
+- Github Profile: [https://github.com/joepamedia](https://github.com/joepamedia)
